@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 
 namespace Tandem.API.Data.sql
 {
-    public class Sql
+    public static class Sql
     {
+        public const string GetUser = @"SELECT * From dbo.Users where EmailAddress=@EmailAddress";
+
     }
 }
