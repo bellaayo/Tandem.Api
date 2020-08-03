@@ -58,6 +58,18 @@ namespace Tandem.API.Data.Repositories
             }
         }
 
+
+        public async Task DeleteUser(string email)
+        {
+            const string query = @"Delete From dbo.Users where EmailAddress=@EmailAddress";
+
+            using (var conn = new SqlConnection(_appSettings.ConnectionStrings.TandemDB))
+            {
+                await conn.ExecuteAsync(query, new { EmailAddress = email });
+
+            }
+        }
+
         private string GetName(string firstName, string middleName, string lastName)
         {
             if(!string.IsNullOrEmpty(middleName))

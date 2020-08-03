@@ -39,5 +39,9 @@ namespace Tandem.API.Services
             return userId;
         }
 
+        public async Task DeleteUser(string email)
+        {
+            await _userRepository.DeleteUser(email);
+        }
     }
 }

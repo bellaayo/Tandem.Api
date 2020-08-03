@@ -59,6 +59,14 @@ namespace Tandem.API.Controllers
             return Ok(userId);
         }
 
+        [HttpDelete]
+        public async Task<IActionResult> DeleteUser([FromQuery]string email)
+        {
+            await _userService.DeleteUser(email);
+            return Ok();
+        }
+
+
         //TODO: This should be moved to a validation service class
         private bool ValidateEmail(string email)
         {

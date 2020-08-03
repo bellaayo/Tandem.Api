@@ -12,5 +12,7 @@ namespace Tandem.API.Data.Repositories
         Task<GetUserResponseDto> GetUser(string email);
 
         Task SaveUser(User user);
+
+        Task DeleteUser(string email);
     }
 }

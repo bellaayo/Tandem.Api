@@ -11,5 +11,7 @@ namespace Tandem.API.Services
         Task<GetUserResponseDto> GetUser(string email);
 
         Task<Guid> CreateUser(CreateUserRequestDto request);
+
+        Task DeleteUser(string email);
     }
 }
