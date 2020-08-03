@@ -9,5 +9,9 @@ namespace Tandem.API.Data.sql
     {
         public const string GetUser = @"SELECT * From dbo.Users where EmailAddress=@EmailAddress";
 
+        public const string SaveUser = @"INSERT INTO dbo.Users ([UserId], [FirstName], [MiddleName], [LastName],
+                                    [EmailAddress], [PhoneNumber]) 
+                                VALUES(@UserId, @FirstName, @MiddleName, @LastName, @EmailAddress, @PhoneNumber)";
+
     }
 }

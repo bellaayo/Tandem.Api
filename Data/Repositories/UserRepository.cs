@@ -28,13 +28,45 @@ namespace Tandem.API.Data.Repositories
                 var result = await conn.QueryFirstOrDefaultAsync<User>(Sql.GetUser, new { EmailAddress = email });
                 if (result == null)
                     return null;
-
+                //TODO: Add automapper 
                 return new GetUserResponseDto()
                 {
                     Name = GetName(result.FirstName, result.MiddleName, result.LastName),
                     EmailAddress = result.EmailAddress,
                     PhoneNumber = result.PhoneNumber
                 };
+            }
+        }
+
+        public async Task SaveUser(User user)
+        {
+            
+            using (var conn = new SqlConnection(_appSettings.ConnectionStrings.TandemDB))
+            {
+                var result = await conn.ExecuteAsync(
+                    Sql.SaveUser,
+                    new
+                    {
+                        UserId = user.UserId,
+                        FirstName = user.FirstName,
+                        MiddleName = user.MiddleName,
+                        LastName = user.LastName,
+                        EmailAddress = user.EmailAddress,
+                        PhoneNumber = user.PhoneNumber
+                    });
+
+            }
+        }
+
+
+        public async Task DeleteUser(string email)
+        {
+            const string query = @"Delete From dbo.Users where EmailAddress=@EmailAddress";
+
+            using (var conn = new SqlConnection(_appSettings.ConnectionStrings.TandemDB))
+            {
+                await conn.ExecuteAsync(query, new { EmailAddress = email });
+
             }
         }
 
