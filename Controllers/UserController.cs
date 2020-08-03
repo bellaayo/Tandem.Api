@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using Tandem.API.Data.dtos;
 using Tandem.API.Services;
 
 namespace Tandem.API.Controllers
@@ -34,6 +32,31 @@ namespace Tandem.API.Controllers
                 return NotFound();
             }
             return Ok(response);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateUser([FromBody]CreateUserRequestDto request)
+        {
+            if (request == null || string.IsNullOrEmpty(request.EmailAddress)
+                || string.IsNullOrEmpty(request.FirstName) || string.IsNullOrEmpty(request.LastName))
+            {
+                return BadRequest("Missing data!");
+            }
+            if (!ValidateEmail(request.EmailAddress))
+            {
+                return BadRequest("Invalid Email Address.");
+            }
+
+            var user = await _userService.GetUser(request.EmailAddress);
+
+            if (user != null)
+            {
+                return Conflict("Email is already in use.");
+            }
+
+            var userId = await _userService.CreateUser(request);
+
+            return Ok(userId);
         }
 
         //TODO: This should be moved to a validation service class

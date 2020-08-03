@@ -9,5 +9,7 @@ namespace Tandem.API.Services
     public interface IUsersService
     {
         Task<GetUserResponseDto> GetUser(string email);
+
+        Task<Guid> CreateUser(CreateUserRequestDto request);
     }
 }

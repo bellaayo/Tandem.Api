@@ -20,5 +20,24 @@ namespace Tandem.API.Services
         {
             return await _userRepository.GetUser(email);
         }
+
+        public async Task<Guid> CreateUser(CreateUserRequestDto request)
+        {
+            var userId = Guid.NewGuid();
+
+            //TODO : Add automapper
+            await _userRepository.SaveUser(new Data.dbos.User
+            {
+                UserId = userId,
+                EmailAddress = request.EmailAddress,
+                FirstName = request.FirstName,
+                MiddleName = request.MiddleName,
+                LastName = request.LastName,
+                PhoneNumber = request.PhoneNumber
+            });
+
+            return userId;
+        }
+
     }
 }
