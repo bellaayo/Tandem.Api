@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tandem.API", "Tandem.API.csproj", "{EDEDE276-F8C7-4A64-9A5B-C8259D80A8BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tandem.API", "Tandem.API.csproj", "{EDEDE276-F8C7-4A64-9A5B-C8259D80A8BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tandem.API.Test.Integration", "Tandem.API.Test.Integration\Tandem.API.Test.Integration.csproj", "{2CC718B3-25D2-4F29-AC66-AFA73B5039EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{EDEDE276-F8C7-4A64-9A5B-C8259D80A8BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDEDE276-F8C7-4A64-9A5B-C8259D80A8BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDEDE276-F8C7-4A64-9A5B-C8259D80A8BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CC718B3-25D2-4F29-AC66-AFA73B5039EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CC718B3-25D2-4F29-AC66-AFA73B5039EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CC718B3-25D2-4F29-AC66-AFA73B5039EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CC718B3-25D2-4F29-AC66-AFA73B5039EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
