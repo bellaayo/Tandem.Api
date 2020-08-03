@@ -2,5 +2,9 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/Tandem.API.Integration.Test/bin/Debug/netcoreapp3.1
-/Tandem.API.Integration.Test/obj
+/obj
+/.vs/Tandem.API/v16
+/bin/Debug/netcoreapp3.1
+/.vs
+/Tandem.API.IntegrationTest/bin/Debug/netcoreapp3.1
+/Tandem.API.IntegrationTest/obj
