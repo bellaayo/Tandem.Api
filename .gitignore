@@ -6,3 +6,5 @@
 /.vs/Tandem.API/v16
 /bin/Debug/netcoreapp3.1
 /.vs
+/Tandem.API.IntegrationTest/bin/Debug/netcoreapp3.1
+/Tandem.API.IntegrationTest/obj
